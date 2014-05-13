@@ -1,4 +1,4 @@
 ifesJava
 ========
 
-Programas utilizados no IFES como exemplos em Aula
+Lista de exercícios e exemplos de programas em Java utilizados no IFES - Campos Cachoeiro de Itapemirim
