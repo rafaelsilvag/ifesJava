@@ -4,14 +4,12 @@
  * and open the template in the editor.
  */
 
-package views;
+package domain;
 
-import javax.swing.JFrame;
-
-
-public class TelaMenu extends JFrame {
-    public TelaMenu(){
-        this.setVisible(true);
-        this.setSize(500,200);
-    }
+/**
+ *
+ * @author rafaelguimaraes
+ */
+public class Usuario {
+    
 }
