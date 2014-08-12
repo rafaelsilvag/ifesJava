@@ -19,7 +19,7 @@ public class UsuarioCRUD {
         try {
             //Preparo a String SQL a ser executada.
             PreparedStatement stmt = conn.prepareStatement(
-                    "INSERT INTO usuario"
+                    "INSERT INTO usuario(nome,senha)"
                     + " VALUES(?,MD5(?));");
             stmt.setString(1, usuario.getNome());
             stmt.setString(2, usuario.getSenha());
@@ -42,16 +42,21 @@ public class UsuarioCRUD {
         try{
             PreparedStatement stmt = conn.prepareStatement(
                     "SELECT nome,senha"
-                            + "FROM usuario;");
+                            + " FROM usuario;");
+            //Executa a query SQL do tipo SELECT
             resultado = stmt.executeQuery();
             
+            //Percorrer todo o resultado do comando SELECT
             while(resultado.next()){
+                //Instância de um novo objeto do tipo Usuario
                 Usuario usuario = new Usuario();
+                //Modifico os atributos do objeto em questão.
                 usuario.setNome(resultado.getString("nome"));
                 usuario.setSenha(resultado.getString("senha"));
-                
+                //Adiciono o objeto usuário criado para a lista listaUsuarios
                 listaUsuarios.add(usuario);
             }
+            //Retorno a lista de usuários criada.
             return listaUsuarios;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());

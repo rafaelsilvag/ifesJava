@@ -1,20 +1,22 @@
+
 package domain;
-/**
- *
- * @author Rafael S. Guimarães
- */
+
 public class Cliente {
-    private String cpf;
+    private int id;
     private String nome;
     private String endereco;
     private String cidade;
+    private String estado;
+    private String telefone;
+    private String cpf;
+    private String cep;
 
-    public String getCpf() {
-        return cpf;
+    public int getId() {
+        return id;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -40,5 +42,37 @@ public class Cliente {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-           
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getCep() {
+        return cep;
+    }
+
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+    
 }
