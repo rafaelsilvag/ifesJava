@@ -1,5 +1,0 @@
-\beamer@endinputifotherversion {3.36pt}
-\select@language {portuges}
-\beamer@sectionintoc {1}{Estruturas de Decis\IeC {\~a}o}{3}{0}{1}
-\beamer@sectionintoc {2}{Estruturas de Repeti\IeC {\c c}\IeC {\~a}o}{14}{0}{2}
-\beamer@sectionintoc {3}{Refer\IeC {\^e}ncias}{19}{0}{3}
