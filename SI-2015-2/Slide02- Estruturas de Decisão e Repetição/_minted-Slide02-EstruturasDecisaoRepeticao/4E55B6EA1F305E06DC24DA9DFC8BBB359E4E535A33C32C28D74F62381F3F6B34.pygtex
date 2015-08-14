@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{javax.swing.JOptionPane}\PYGdefault{o}{;}
+
+\PYGdefault{k+kd}{public} \PYGdefault{k+kd}{class} \PYGdefault{n+nc}{ExemploIf05}\PYGdefault{o}{\PYGdefaultZob{}}
+    \PYGdefault{k+kd}{public} \PYGdefault{k+kd}{static} \PYGdefault{k+kt}{void} \PYGdefault{n+nf}{main}\PYGdefault{o}{(}\PYGdefault{n}{String} \PYGdefault{n}{args}\PYGdefault{o}{[])\PYGdefaultZob{}}
+        \PYGdefault{n}{String} \PYGdefault{n}{nome}\PYGdefault{o}{;}
+
+        \PYGdefault{n}{nome} \PYGdefault{o}{=} \PYGdefault{n}{JOptionPane}\PYGdefault{o}{.}\PYGdefault{n+na}{showInputDialog}\PYGdefault{o}{(}\PYGdefault{l+s}{\PYGdefaultZdq{}Informe o seu nome\PYGdefaultZdq{}}\PYGdefault{o}{);}
+        \PYGdefault{c+c1}{// verifica se o nome do usuário é admin}
+        \PYGdefault{k}{if}\PYGdefault{o}{(}\PYGdefault{n}{nome}\PYGdefault{o}{.}\PYGdefault{n+na}{equalsIgnoreCase}\PYGdefault{o}{(}\PYGdefault{l+s}{\PYGdefaultZdq{}admin\PYGdefaultZdq{}}\PYGdefault{o}{))\PYGdefaultZob{}}
+            \PYGdefault{n}{JOptionPane}\PYGdefault{o}{.}\PYGdefault{n+na}{showMessageDialog}\PYGdefault{o}{(}\PYGdefault{k+kc}{null}\PYGdefault{o}{,}
+                                          \PYGdefault{l+s}{\PYGdefaultZdq{}Você é um usuário Admin!\PYGdefaultZdq{}}\PYGdefault{o}{);}
+        \PYGdefault{o}{\PYGdefaultZcb{}}\PYGdefault{k}{else}\PYGdefault{o}{\PYGdefaultZob{}}
+            \PYGdefault{n}{JOptionPane}\PYGdefault{o}{.}\PYGdefault{n+na}{showMessageDialog}\PYGdefault{o}{(}\PYGdefault{k+kc}{null}\PYGdefault{o}{,}
+                                          \PYGdefault{l+s}{\PYGdefaultZdq{}Você é um usuário comum!\PYGdefaultZdq{}}\PYGdefault{o}{);}
+        \PYGdefault{o}{\PYGdefaultZcb{}}
+    \PYGdefault{o}{\PYGdefaultZcb{}}
+\PYGdefault{o}{\PYGdefaultZcb{}}
+\end{Verbatim}

@@ -1,0 +1,253 @@
+\documentclass{beamer}
+\definecolor{azulPoP}{rgb}{0.243,0.466,0.701}
+\mode<presentation> {
+%\usetheme{Warsaw}
+\setbeamercolor{frametitle}{fg=white,bg=azulPoP}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=black}
+\setbeamercolor{block title}{bg=azulPoP,fg=white}
+\setbeamercolor{title}{bg=azulPoP,fg=white}
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage[utf8x]{inputenc}
+\usepackage{minted}
+\usepackage[portuges]{babel}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\setbeamerfont{footnote}{size=\tiny}
+\title[Introdução à Orientação a Objetos I]{Introdução à Orientação a Objetos I} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Rafael Silva Guimarães} % Your name
+\institute[IFES] 
+{
+Instituto Federal do Espírito Santo \\ % Your institution for the title page
+\medskip
+\textit{rafaelg@ifes.edu.br} \\ % Your email address
+\textit{http://rafaelguimaraes.net} \\
+\textit{https://github.com/rafaelsilvag/ifesJava/}
+}
+\date{\today} % Date, can be changed to a custom date
+\logo{\includegraphics[scale=0.2]{imagens/ifes.png}}
+
+\begin{document}
+
+\setbeamertemplate{footline}
+{%
+\leavevmode%
+\hbox{%
+
+%\begin{beamercolorbox}[wd=.20\paperwidth,ht=1.0ex,dp=1.125ex,left]{author
+%in head/foot}%
+%\usebeamerfont{title in head/foot}\insertshortauthor\hspace{.3cm}
+%\end{beamercolorbox}%
+
+\begin{beamercolorbox}[wd=.45\paperwidth,ht=0.8ex,dp=1.125ex,left]{title
+in head/foot}%
+\usebeamerfont{author in head/foot}\hspace{.3cm}\insertshorttitle
+
+\end{beamercolorbox}%
+
+\begin{beamercolorbox}[wd=.1\paperwidth,ht=0.8ex,dp=1.125ex,center]{title
+in head/foot}%
+\usebeamerfont{author in head/foot}\insertframenumber/\inserttotalframenumber
+\end{beamercolorbox}%
+}%
+\vskip0pt%
+}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Glossário} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Estruturas de Decisão}
+
+\begin{frame}
+\frametitle{Estrururas de Decisão}
+	\begin{itemize}
+		\item Uma estrutura de decisão altera o fluxo de execução do programa. Ele faz isso através de uma estrutura aonde você especifica uma condição para que ocorra tal alteração em um determinado programa.
+		\item No Java, as estruturas de decisão possuem syntaxe idêntica da linguagem C, vista por vocês no semestre anterior. As estruturas que você deve ter conhecimento são: \textit{IF} e \textit{SWITCH}.
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\begin{itemize}
+		\item Vejamos um de utilização da estrurura \textit{IF} no algoritmo ExemploIf01.
+		\item \textbf{Obs.: Assim como no C, a linguagem Java também é sensível a letras maiúsculas e minísculas.}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\begin{example}[ExemploIf01.java]
+		\inputminted[tabsize=2, fontsize=\footnotesize]{java}{codigos/ExemploIf01.java}
+	\end{example}
+\end{frame}
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\begin{itemize}
+		\item Estamos alterando a forma de como iremos exibir e capturar as informações para o usuário. Estaremos utilizando uma classe gráfica que exibe e coleta informações do usuário chamada de "\textit{JOptionPane}".
+		\item Esta classe faz parte do pacote \textit{Swing}, responsável por armazenar todas as classes de manipulação gráfica no Java. Iremos aprofundar melhor nela em um outro momento em nossa disciplina.
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\begin{itemize}
+		\item Lembre-se! Para capturar e exibir os dados utilizaremos conforme podemos observar no código abaixo:
+		\item JOptionPane.showMessageDialog(null, "Valor");
+			\begin{itemize}
+				\inputminted[tabsize=2, fontsize=\footnotesize]{java}{codigos/ExemploIf02.java}
+			\end{itemize}
+		\item JOptionPane.showInputDialog("Informe um valor: ");
+			\begin{itemize}
+				\inputminted[tabsize=2, fontsize=\footnotesize]{java}{codigos/ExemploIf03.java}
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\begin{itemize}
+		\item Algumas comparações serão alteradas. Por exemplo, em C para compararmos strings era necessário utilizarmos uma coleção de funções na biblioteca "string.h". No caso do Java, uma String na verdade é um objetos que contém métodos e atributos. Veja no exemplo a seguir:
+		\item Podemo observar que no objeto do tipo String temos um método chamado de "\textit{equal}" ou "\textit{equalIgnoreCase}", responsável por comparar 2 strings. Portanto, o método irá retornar 2 valores, "true" ou "false".
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\begin{example}[ExemploIf04.java]
+		\inputminted[tabsize=1, fontsize=\footnotesize]{java}{codigos/ExemploIf04.java}
+	\end{example}
+\end{frame}
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\begin{example}[ExemploIf05.java]
+		\inputminted[tabsize=1, fontsize=\footnotesize]{java}{codigos/ExemploIf05.java}
+	\end{example}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\begin{itemize}
+		\item Vamos ver um exemplo de utilização da estrutura de decisão Switch em Java, no algoritmo ExemploSwitch01.
+		\item Nesta etapa executamos uma "Conversão de Tipos", passando um valor do tipo String para um valor do tipo Integer.
+	\end{itemize}
+	\begin{table}
+		\begin{tabular}{cl l}
+			\toprule
+			\textbf{Valor Inicial} & \textbf{Tipagem Final} & \textbf{Formato para conversão} \\
+			\midrule
+			int x = 10 & float & float y = (float) x  \\
+			int x = 10 & double & double y = (double) x  \\
+			float x = 10.5 & int & int y = (int) x  \\
+			\bottomrule
+		\end{tabular}
+		%\caption{Tipos Primitivos em Java}
+	\end{table}
+\end{frame}
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\inputminted[tabsize=1, fontsize=\footnotesize]{java}{codigos/ExemploSwitch01.java}
+\end{frame}
+\begin{frame}
+	\frametitle{Estrururas de Decisão}
+	\begin{table}
+		\begin{tabular}{cl l}
+			\toprule
+			\textbf{Valor Inicial} & \textbf{Tipagem Final} & \textbf{Formato para conversão} \\
+			\midrule
+			String x = "10" & int & int y = Integer.parseInt(x)  \\
+			String x = "10.50" & float & float y = Float.parseFloat(x)  \\
+			String x = "10.50" & double & double y = Double.parseDouble(x)  \\
+			String x = "IFES" & Vetor de Bytes & byte b[] = x.getBytes()  \\
+			int x = 10 & String & String y = String.valueOf(x) \\
+			float x = 10.5 & String & String y = String.valueOf(x) \\
+			double x = 235.222 & String & String y = String.valueOf(x) \\
+			byte x[] & String & String y = new String(x) \\
+			\bottomrule
+		\end{tabular}
+		%\caption{Tipos Primitivos em Java}
+	\end{table}
+\end{frame}
+
+
+%-------------------------------------
+\section{Estruturas de Repetição}
+
+\begin{frame}
+	\frametitle{Estruturas de Repetição}
+	\begin{itemize}
+		\item Uma estrutura de repetição, cada ciclo de repetição é chamado de iteração.
+		\item No Java, as estruturas de repetição possuem syntaxe idêntica da linguagem C, vista por vocês no semestre anterior. As estruturas que você deve ter conhecimento são: \textit{FOR}, \textit{FOREACH}, \textit{WHILE} e \textit{DO...WHILE}.
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Estruturas de Repetição - FOR }
+	\begin{example}[ExemploFor01.java]
+		\inputminted[tabsize=1, fontsize=\footnotesize]{java}{codigos/ExemploFor01.java}
+	\end{example}
+\end{frame}
+\begin{frame}
+	\frametitle{Estruturas de Repetição - FOREACH }
+	\begin{example}[ExemploFor02.java]
+		\inputminted[tabsize=1, fontsize=\footnotesize]{java}{codigos/ExemploFor02.java}
+	\end{example}
+\end{frame}
+\begin{frame}
+	\frametitle{Estruturas de Repetição - WHILE }
+	\begin{example}[ExemploFor02.java]
+		\inputminted[tabsize=1, fontsize=\footnotesize]{java}{codigos/ExemploWhile01.java}
+	\end{example}
+\end{frame}
+\begin{frame}
+	\frametitle{Estruturas de Repetição - DO...WHILE }
+	\inputminted[tabsize=1, fontsize=\footnotesize]{java}{codigos/ExemploWhile02.java}
+\end{frame}
+%\begin{frame}
+%	\frametitle{Tipos de Dados}
+%	\begin{example}[TiposDados01.java]
+%		\inputminted{java}{codigos/TiposDados01.java}
+%	\end{example}
+%\end{frame}
+
+%------------------------------------------------
+\section{Referências}
+
+\begin{frame}
+	\frametitle{Referências}
+	\footnotesize{
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Cornell, G. ; Horstmann, S. C., 2003]{p1} Cornell, G. ; Horstmann, S. C. 
+			\newblock Core Java 2: Fundamentos (vol.1.)
+			\newblock \emph{Pearson Makron Books} São Paulo
+		\end{thebibliography}
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Cornell, G. ; Horstmann, S. C., 2003]{p2} Cornell, G. ; Horstmann, S. C. 
+			\newblock Core Java 2: Recursos Avançados (vol.2.)
+			\newblock \emph{Pearson Makron Books} São Paulo
+		\end{thebibliography}
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Sebesta, R.W., 2003]{p3} Sebesta, R.W.
+			\newblock Conceitos de Linguagens de Programação
+			\newblock \emph{Bookman} São Paulo
+		\end{thebibliography}
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Deitel, Paul; Deitel, Harvey, 2010]{p4} Deitel, Paul; Deitel, Harvey
+			\newblock Java - Como Programar
+			\newblock \emph{Pearson} São Paulo
+		\end{thebibliography}
+	}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 

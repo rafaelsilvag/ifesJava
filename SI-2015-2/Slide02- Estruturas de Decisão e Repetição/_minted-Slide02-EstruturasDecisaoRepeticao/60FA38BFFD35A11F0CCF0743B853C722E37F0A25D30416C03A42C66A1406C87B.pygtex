@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{javax.swing.JOptionPane}\PYGdefault{o}{;}
+\PYGdefault{c+c1}{// Importação da classe responsável por criar uma}
+\PYGdefault{c+c1}{// interface de interação com o usuário}
+\PYGdefault{k+kd}{public} \PYGdefault{k+kd}{class} \PYGdefault{n+nc}{ExemploIf01}\PYGdefault{o}{\PYGdefaultZob{}}
+    \PYGdefault{k+kd}{public} \PYGdefault{k+kd}{static} \PYGdefault{k+kt}{void} \PYGdefault{n+nf}{main}\PYGdefault{o}{(}\PYGdefault{n}{String} \PYGdefault{n}{args}\PYGdefault{o}{[])\PYGdefaultZob{}}
+        \PYGdefault{k+kt}{int} \PYGdefault{n}{valor}\PYGdefault{o}{=}\PYGdefault{l+m+mi}{0}\PYGdefault{o}{;}
+        \PYGdefault{c+c1}{// Retiramos o System.out.println por JOptionPane}
+        \PYGdefault{k}{if} \PYGdefault{o}{(}\PYGdefault{n}{valor} \PYGdefault{o}{==} \PYGdefault{l+m+mi}{0}\PYGdefault{o}{)\PYGdefaultZob{}}
+            \PYGdefault{n}{JOptionPane}\PYGdefault{o}{.}\PYGdefault{n+na}{showMessageDialog}\PYGdefault{o}{(}
+                                \PYGdefault{k+kc}{null}\PYGdefault{o}{,}
+                                \PYGdefault{l+s}{\PYGdefaultZdq{}Valor igual a 0\PYGdefaultZdq{}}\PYGdefault{o}{);}
+        \PYGdefault{o}{\PYGdefaultZcb{}}\PYGdefault{k}{else}\PYGdefault{o}{\PYGdefaultZob{}}
+            \PYGdefault{n}{JOptionPane}\PYGdefault{o}{.}\PYGdefault{n+na}{showMessageDialog}\PYGdefault{o}{(}
+                                \PYGdefault{k+kc}{null}\PYGdefault{o}{,}
+                                \PYGdefault{l+s}{\PYGdefaultZdq{}Valor não é igual a 0\PYGdefaultZdq{}}\PYGdefault{o}{);}
+        \PYGdefault{o}{\PYGdefaultZcb{}}
+    \PYGdefault{o}{\PYGdefaultZcb{}}
+\PYGdefault{o}{\PYGdefaultZcb{}}
+\end{Verbatim}

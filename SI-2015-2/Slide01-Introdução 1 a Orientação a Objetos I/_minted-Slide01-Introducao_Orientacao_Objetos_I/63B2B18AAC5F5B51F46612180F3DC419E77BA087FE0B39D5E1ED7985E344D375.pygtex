@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k+kd}{final} \PYGdefault{k+kt}{double} \PYGdefault{n}{pi} \PYGdefault{o}{=} \PYGdefault{l+m+mf}{3.14}\PYGdefault{o}{;}
+\PYGdefault{k+kd}{final} \PYGdefault{k+kt}{int} \PYGdefault{n}{miliSegundosporSegundos} \PYGdefault{o}{=} \PYGdefault{l+m+mi}{1000}\PYGdefault{o}{;}
+\end{Verbatim}

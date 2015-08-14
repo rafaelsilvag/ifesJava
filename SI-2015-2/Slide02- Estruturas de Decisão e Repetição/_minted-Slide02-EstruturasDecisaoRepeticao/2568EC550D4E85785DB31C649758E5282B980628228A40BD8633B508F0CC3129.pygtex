@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k+kn}{import} \PYGdefault{n+nn}{javax.swing.JOptionPane}\PYGdefault{o}{;}
+
+\PYGdefault{k+kd}{public} \PYGdefault{k+kd}{class} \PYGdefault{n+nc}{ExemploFor02}\PYGdefault{o}{\PYGdefaultZob{}}
+
+    \PYGdefault{k+kd}{public} \PYGdefault{k+kd}{static} \PYGdefault{k+kt}{void} \PYGdefault{n+nf}{main}\PYGdefault{o}{(}\PYGdefault{n}{String} \PYGdefault{n}{args}\PYGdefault{o}{[])\PYGdefaultZob{}}
+        \PYGdefault{k+kt}{int} \PYGdefault{n}{vInteiros}\PYGdefault{o}{[]} \PYGdefault{o}{=} \PYGdefault{o}{\PYGdefaultZob{}}\PYGdefault{l+m+mi}{0}\PYGdefault{o}{,}\PYGdefault{l+m+mi}{1}\PYGdefault{o}{,}\PYGdefault{l+m+mi}{2}\PYGdefault{o}{,}\PYGdefault{l+m+mi}{3}\PYGdefault{o}{,}\PYGdefault{l+m+mi}{4}\PYGdefault{o}{,}\PYGdefault{l+m+mi}{5}\PYGdefault{o}{,}\PYGdefault{l+m+mi}{6}\PYGdefault{o}{,}\PYGdefault{l+m+mi}{7}\PYGdefault{o}{,}\PYGdefault{l+m+mi}{8}\PYGdefault{o}{,}\PYGdefault{l+m+mi}{9}\PYGdefault{o}{\PYGdefaultZcb{},} \PYGdefault{n}{soma}\PYGdefault{o}{=}\PYGdefault{l+m+mi}{0}\PYGdefault{o}{;}
+        \PYGdefault{c+c1}{// Exemplo de utilização do FOREACH}
+        \PYGdefault{k}{for}\PYGdefault{o}{(}\PYGdefault{k+kt}{int} \PYGdefault{n}{v}\PYGdefault{o}{:} \PYGdefault{n}{vInteiros}\PYGdefault{o}{)\PYGdefaultZob{}}
+            \PYGdefault{n}{soma} \PYGdefault{o}{+=} \PYGdefault{n}{v}\PYGdefault{o}{;}
+        \PYGdefault{o}{\PYGdefaultZcb{}}
+
+        \PYGdefault{n}{JOptionPane}\PYGdefault{o}{.}\PYGdefault{n+na}{showMessageDialog}\PYGdefault{o}{(}\PYGdefault{k+kc}{null}\PYGdefault{o}{,}\PYGdefault{l+s}{\PYGdefaultZdq{}Resultado: \PYGdefaultZdq{}}\PYGdefault{o}{+}\PYGdefault{n}{soma}\PYGdefault{o}{);}
+    \PYGdefault{o}{\PYGdefaultZcb{}}
+\PYGdefault{o}{\PYGdefaultZcb{}}
+\end{Verbatim}

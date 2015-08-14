@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGdefault{k+kt}{int} \PYGdefault{n}{i}\PYGdefault{o}{=}\PYGdefault{l+m+mi}{0}\PYGdefault{o}{;}
+\PYGdefault{c+c1}{// Para concatenar valor inteiro com string usamos o +}
+\PYGdefault{n}{JOptionPane}\PYGdefault{o}{.}\PYGdefault{n+na}{showMessageDialog}\PYGdefault{o}{(}\PYGdefault{k+kc}{null}\PYGdefault{o}{,} \PYGdefault{l+s}{\PYGdefaultZdq{}Valor: \PYGdefaultZdq{}}\PYGdefault{o}{+}\PYGdefault{n}{i}\PYGdefault{o}{);}
+\end{Verbatim}
