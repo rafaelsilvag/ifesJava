@@ -1,0 +1,214 @@
+\documentclass{beamer}
+\definecolor{azulPoP}{rgb}{0.243,0.466,0.701}
+\mode<presentation> {
+%\usetheme{Warsaw}
+\setbeamercolor{frametitle}{fg=white,bg=azulPoP}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=black}
+\setbeamercolor{block title}{bg=azulPoP,fg=white}
+\setbeamercolor{title}{bg=azulPoP,fg=white}
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage[utf8x]{inputenc}
+\usepackage{minted}
+\usepackage[portuges]{babel}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\setbeamerfont{footnote}{size=\tiny}
+\title[Orientação à Objetos I]{Conceitos de Classes e Objetos} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Rafael Silva Guimarães} % Your name
+\institute[IFES] 
+{
+Instituto Federal do Espírito Santo \\ % Your institution for the title page
+\medskip
+\textit{rafaelg@ifes.edu.br} \\ % Your email address
+\textit{http://rafaelguimaraes.net} \\
+\textit{https://github.com/rafaelsilvag/ifesJava/}
+}
+\date{\today} % Date, can be changed to a custom date
+\logo{\includegraphics[scale=0.2]{imagens/ifes.png}}
+
+\begin{document}
+
+\setbeamertemplate{footline}
+{%
+\leavevmode%
+\hbox{%
+
+%\begin{beamercolorbox}[wd=.20\paperwidth,ht=1.0ex,dp=1.125ex,left]{author
+%in head/foot}%
+%\usebeamerfont{title in head/foot}\insertshortauthor\hspace{.3cm}
+%\end{beamercolorbox}%
+
+\begin{beamercolorbox}[wd=.45\paperwidth,ht=0.8ex,dp=1.125ex,left]{title
+in head/foot}%
+\usebeamerfont{author in head/foot}\hspace{.3cm}\insertshorttitle
+
+\end{beamercolorbox}%
+
+\begin{beamercolorbox}[wd=.1\paperwidth,ht=0.8ex,dp=1.125ex,center]{title
+in head/foot}%
+\usebeamerfont{author in head/foot}\insertframenumber/\inserttotalframenumber
+\end{beamercolorbox}%
+}%
+\vskip0pt%
+}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Glossário} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Introdução} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\subsection{Objetos} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+\begin{frame}
+\frametitle{Objetos}
+	\begin{itemize}
+		\item Na programação orientada a objetos, objeto é uma abstração dos objetos reais existentes.
+		\item Em uma sala de aula, por exemplo, existem diversos objetos: alunos, cadeiras, mesas etc. 
+		\item Os objetos compartilham duas características principais:
+			\begin{itemize}
+				\item[-] Todos possuem um \textbf{estado}(conjunto de propriedades do objeto);
+				\item[-] \textbf{Comportamentos}(as ações possíveis sobre o objeto);
+			\end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Objetos}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[scale=0.45]{imagens/classe}
+	\end{figure}
+\end{frame}
+\begin{frame}
+	\frametitle{Objetos}
+	\begin{itemize}
+		\item Na classe apresentada, teremos objetos com os atributis(estados) e métodos(comportamentos) bem definidos;
+		\item Um conceito chamado de \textbf{encapsulamento}, é quando os atributos só podem ser alterados utilizando métodos do próprio objeto;
+		\item Para isso aprenderemos que tanto os atributos quanto os métodos teremos quantificadores, que definem as permissões de acesso: \textbf{public, private, protected};
+		\item No Java, os métodos de acesso começam com as palavras \textbf{get} e \textbf{set}:
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Objetos}
+	\begin{itemize}
+		\item Mensagem entre objetos: Em orientação a objetos é muito comum que um objeto necessite realizar uma tarefa que já está definida em outro objeto;
+		\item Em outras palavras, um objeto X pode necessitar de um procedimento(método) já definido em um objeto Y;
+		\begin{itemize}
+			\item[-] \inputminted{java}{codigos/Objetos01.java}
+			\item[-] \inputminted{java}{codigos/Objetos02.java}
+		\end{itemize}		
+	\end{itemize}
+\end{frame}
+
+
+\subsection{Classes}
+
+\begin{frame}
+	\frametitle{Classes}
+	\begin{itemize}
+		\item Os objetos são gerados a partir das classes, sendo \textbf{instâncias} em memória que mantém seus valores de maneira individual. A criação de uma classe deve anteceder o uso de um objeto, uma vez que este é criado a partir dela.
+	\end{itemize}
+	\inputminted{java}{codigos/Classes01.java}
+\end{frame}
+\begin{frame}
+	\frametitle{Classes}
+	\begin{itemize}
+		\item O \textbf{qualificador} da classe indica como a classe pode ser usada por outras classes. Neste caso, os qualificadores utilizados são \textbf{public} e \textbf{private}.
+		\item O qualificador \textbf{public} indica que o conteúdo do classe pode ser usada por outras classes do mesmo pacote e de outro pacote. Na prática, \textbf{pacotes} são diretórios.
+		\item O qualificador \textbf{private} indica que o conteúdo da classe é privado e pode ser usado apenas por classes do mesmo pacote, isto é, por classes localizadas no mesmo diretório. Por padrão o qualificador utilizado é o \textbf{private}.
+	\end{itemize}
+\end{frame}
+
+\section{Prática}
+
+\subsection{Criação de Classes}
+% Declaração de variáveis
+\begin{frame}
+	\frametitle{Criação de Classes}
+	\begin{itemize}
+		\item Uma classe é composta basicamente por declaração de variáveis(atributos) e implementação dos métodos.
+	\end{itemize}
+	\inputminted{java}{codigos/Aluno.java}
+\end{frame}
+\begin{frame}
+	\frametitle{Criação de Classes}
+	\begin{itemize}
+		\item Se você não especificar o qualificador por padrão é utilizado no atributo ou método o qualificador \textbf{public};
+		\item As variáveis id, nome, endereço e curso são conhecidas como variáveis de instância, pois serão instânciadas pelos objetos;
+		\item Essa classe não é executável, uma vez que não possui o método \textbf{main}. Por este motivo, não é possível executá-la;
+	\end{itemize}
+\end{frame}
+
+\subsection{Utilização de Objetos}
+\begin{frame}
+	\frametitle{Utilização de Objetos}
+	\begin{itemize}
+		\item Conforme vimos anteriormente, uma classe permite criar objetos que serão utilizados em outras classes.
+	\end{itemize}
+	\inputminted{java}{codigos/Principal.java}
+\end{frame}
+
+\subsection{Pacotes}
+\begin{frame}
+	\frametitle{Pacotes}
+	\begin{itemize}
+		\item No desenvolvimento de pequenas aplicações Java, pode ser viável manter o código em um mesmo diretório. Entretanto, para aplicações maiores, colocar todos os arquivos em um mesmo local, sem organização, pode aumentar a possibilidade de colisão de classes (classes com o mesmo nome no mesmo escopo) e dificultar a localização de um determinado código.
+		\item Em Java, a solução para esses problemas está na organização de classes em pacotes.
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Pacotes}
+	\begin{itemize}
+		\item No desenvolvimento de pequenas aplicações Java, pode ser viável manter o código em um mesmo diretório. Entretanto, para aplicações maiores, colocar todos os arquivos em um mesmo local, sem organização, pode aumentar a possibilidade de colisão de classes (classes com o mesmo nome no mesmo escopo) e dificultar a localização de um determinado código.
+		\item Em Java, a solução para esses problemas está na organização de classes em pacotes.
+	\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\subsection{Referências}
+
+\begin{frame}
+	\frametitle{Referências}
+	\footnotesize{
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Cornell, G. ; Horstmann, S. C., 2003]{p1} Cornell, G. ; Horstmann, S. C. 
+			\newblock Core Java 2: Fundamentos (vol.1.)
+			\newblock \emph{Pearson Makron Books} São Paulo
+		\end{thebibliography}
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Cornell, G. ; Horstmann, S. C., 2003]{p2} Cornell, G. ; Horstmann, S. C. 
+			\newblock Core Java 2: Recursos Avançados (vol.2.)
+			\newblock \emph{Pearson Makron Books} São Paulo
+		\end{thebibliography}
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Sebesta, R.W., 2003]{p3} Sebesta, R.W.
+			\newblock Conceitos de Linguagens de Programação
+			\newblock \emph{Bookman} São Paulo
+		\end{thebibliography}
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Deitel, Paul; Deitel, Harvey, 2010]{p4} Deitel, Paul; Deitel, Harvey
+			\newblock Java - Como Programar
+			\newblock \emph{Pearson} São Paulo
+		\end{thebibliography}
+	}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 
