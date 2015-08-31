@@ -1,0 +1,180 @@
+\documentclass{beamer}
+\definecolor{azulPoP}{rgb}{0.243,0.466,0.701}
+\mode<presentation> {
+%\usetheme{Warsaw}
+\setbeamercolor{frametitle}{fg=white,bg=azulPoP}
+\setbeamercolor{subsection in head/foot}{fg=white,bg=black}
+\setbeamercolor{block title}{bg=azulPoP,fg=white}
+\setbeamercolor{title}{bg=azulPoP,fg=white}
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage[utf8x]{inputenc}
+\usepackage{minted}
+\usepackage[portuges]{babel}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\setbeamerfont{footnote}{size=\tiny}
+\title[Orientação à Objetos I]{Construtores, Destrutores, Herança e Polimorfismo} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Rafael Silva Guimarães} % Your name
+\institute[IFES] 
+{
+Instituto Federal do Espírito Santo \\ % Your institution for the title page
+\medskip
+\textit{rafaelg@ifes.edu.br} \\ % Your email address
+\textit{http://rafaelguimaraes.net} \\
+\textit{https://github.com/rafaelsilvag/ifesJava/}
+}
+\date{\today} % Date, can be changed to a custom date
+\logo{\includegraphics[scale=0.2]{imagens/ifes.png}}
+
+\begin{document}
+
+\setbeamertemplate{footline}
+{%
+\leavevmode%
+\hbox{%
+
+%\begin{beamercolorbox}[wd=.20\paperwidth,ht=1.0ex,dp=1.125ex,left]{author
+%in head/foot}%
+%\usebeamerfont{title in head/foot}\insertshortauthor\hspace{.3cm}
+%\end{beamercolorbox}%
+
+\begin{beamercolorbox}[wd=.45\paperwidth,ht=0.8ex,dp=1.125ex,left]{title
+in head/foot}%
+\usebeamerfont{author in head/foot}\hspace{.3cm}\insertshorttitle
+
+\end{beamercolorbox}%
+
+\begin{beamercolorbox}[wd=.1\paperwidth,ht=0.8ex,dp=1.125ex,center]{title
+in head/foot}%
+\usebeamerfont{author in head/foot}\insertframenumber/\inserttotalframenumber
+\end{beamercolorbox}%
+}%
+\vskip0pt%
+}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Glossário} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+\section{Parte 1}
+%------------------------------------------------
+\subsection{Construtores} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+\begin{frame}
+	\frametitle{Construtores}
+	\begin{itemize}
+		\item Até o momento, em todas as instanciações(ou inicializações) de objetos foi usado a palavra reservada \textbf{new} da seguinte forma:
+		\begin{itemize}
+			\item[-] Veiculo v1 = \textbf{new} Veiculo();
+ 		\end{itemize}
+ 		\item Como o próprio nome diz, o método construtor é o responsável pelo processo de instanciação do objeto, representando uma forma extremamente simples de atribuir valores default a um objeto.
+ 		\item Se um construtor não for declarado, é assumido um construtor default  da linguagem Java, em que as variáveis são inicializadas com os conteúdos default. 
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Construtores}
+	\inputminted{java}{codigos/Construtores01.java}
+\end{frame}
+
+\subsection{Destrutores}
+% Exemplos de declaracao
+\begin{frame}
+	\frametitle{Destrutores}
+	\begin{itemize}
+		\item Algumas linguagem precisam eliminar o objeto utilizado. Java usa o Garbage Colector para eliminar automaticamente objetos que não são mais utilizados. 
+		\item Desta maneira, o Java executa o método \textit{finalize()} que pode ser implementado para executar instruções ao eliminar um determinado objeto. Segue exemplo:
+	\end{itemize}
+	\inputminted{java}{codigos/Destrutores01.java}
+\end{frame}	
+
+\section{Parte 2}
+\subsection{Herança}
+\begin{frame}
+	\frametitle{Herança}
+	\begin{itemize}
+		\item O reuso do código é uma das grandes vantagens da programação orientada à objetos;
+		\item Muito disso se dá por uma questão que é conhecida como herança, característica essa que otimiza a produção de software em tempo e linhas de código;
+		\item Existem as heranças diretas, que por exemplo temos as características herdadas do pai para o seu filho. E heranças indiretas, características, por exemplo, que o filho herda do seu avô.
+	\end{itemize}
+\end{frame}
+\subsection{Herança}
+\begin{frame}
+	\frametitle{Herança}
+	\begin{itemize}
+		\item No exemplo abaixo utilizado pelo Java, estamos herdando os métodos e atributos de uma determinada classe.
+		\item Para isso, utilizamos a palavra reservada \textit{extends} para definir de qual classe irei herdar.
+	\end{itemize}
+	\inputminted{java}{codigos/Carro.java}
+\end{frame}
+\begin{frame}
+	\frametitle{Herança}
+	\inputminted{java}{codigos/Automovel.java}
+	\inputminted{java}{codigos/Carro.java}
+\end{frame}
+\begin{frame}
+	\frametitle{Herança}
+	\begin{itemize}
+		\item A questão de herança varia muito de linguagem para linguagem. Em algumas delas como C++ e Python, há a questão de heranças múltiplas. Isso significa que o objeto vai herdar as caracterísicas de vários objetos ao mesmo tempo;
+		\item No caso do Java, isso foi feito utilizando certas artimanhas para criar uma espécia de heranças múltiplas;
+	\end{itemize}
+\end{frame}
+
+\subsection{Polimorfismo}
+\begin{frame}
+	\frametitle{Polimorfismo}
+	\begin{itemize}
+		\item Definimos \textbf{Polimorfismo} como um princípio a partir do qual as classes derivadas de uma única classe base são capazes de invocar os métodos que, embora apresentem a mesma assinatura, comportam-se de maneira diferente para cada uma das classes derivadas.
+		\item Exemplo: Temos uma classe chamada \textbf{Vendedor} e outra chamada \textbf{Diretor} podem ter como base uma classe chamada \textbf{Pessoa}, com um método chamado \textbf{calcularVendas}. Se este método (definido na classe base) se comportar de maneira diferente para as chamadas feitas a partir de uma instância de Vendedor e para as chamadas feitas a partir de uma instância de Diretor, ele será considerado um método polimórfico, ou seja, um método de várias formas.
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\frametitle{Polimorfismo}
+	\inputminted{java}{codigos/Pessoa.java}
+	\inputminted{java}{codigos/Vendedor.java}
+	\inputminted{java}{codigos/Diretor.java}
+\end{frame}
+%------------------------------------------------
+\section{Referências}
+
+\begin{frame}
+	\frametitle{Referências}
+	\footnotesize{
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Cornell, G. ; Horstmann, S. C., 2003]{p1} Cornell, G. ; Horstmann, S. C. 
+			\newblock Core Java 2: Fundamentos (vol.1.)
+			\newblock \emph{Pearson Makron Books} São Paulo
+		\end{thebibliography}
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Cornell, G. ; Horstmann, S. C., 2003]{p2} Cornell, G. ; Horstmann, S. C. 
+			\newblock Core Java 2: Recursos Avançados (vol.2.)
+			\newblock \emph{Pearson Makron Books} São Paulo
+		\end{thebibliography}
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Sebesta, R.W., 2003]{p3} Sebesta, R.W.
+			\newblock Conceitos de Linguagens de Programação
+			\newblock \emph{Bookman} São Paulo
+		\end{thebibliography}
+		\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+			\bibitem[Deitel, Paul; Deitel, Harvey, 2010]{p4} Deitel, Paul; Deitel, Harvey
+			\newblock Java - Como Programar
+			\newblock \emph{Pearson} São Paulo
+		\end{thebibliography}
+	}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document} 
