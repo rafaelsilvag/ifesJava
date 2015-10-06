@@ -5,8 +5,10 @@
  */
 package views;
 
+import crud.UsuarioCRUD;
 import database.Database;
 import database.DatabaseFactory;
+import domain.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,9 +24,13 @@ public class FrmLogin extends javax.swing.JFrame {
     /**
      * Creates new form FrmLogin
      */
+    private Connection conn;
+    
     public FrmLogin() {
         initComponents();
         this.setVisible(true);
+        Database database = DatabaseFactory.getDatabase("postgresql");
+        this.conn = database.conectar();
     }
 
     /**
@@ -116,23 +122,18 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         // TODO add your handling code here:]
-        Database database = DatabaseFactory.getDatabase("postgresql");
-        Connection conn = database.conectar();
+        UsuarioCRUD usuarioCRUD = new UsuarioCRUD();
+        Usuario usuario = new Usuario();
         
-        if(conn!=null){
-            try{
-                PreparedStatement stmt = conn.prepareStatement(
-                        "SELECT nome,senha FROM usuario WHERE nome=? and senha=?;"
-                );
-                stmt.setString(1, this.tfNome.getText());
-                stmt.setString(2, this.pfSenha.getText());
-                
-                ResultSet resultado = stmt.executeQuery();
-                
-                
-            }catch(SQLException ex){
-                
-            }
+        usuario.setUsuario(tfNome.getText());
+        usuario.setSenha(pfSenha.getText());
+        
+        if(usuarioCRUD.ler(this.conn, usuario) == null){
+            JOptionPane.showMessageDialog(this, "Usuario e senha inválidos!!");
+        }else{
+            FrmPrincipal principal = new FrmPrincipal();
+            principal.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_btLoginActionPerformed
 
