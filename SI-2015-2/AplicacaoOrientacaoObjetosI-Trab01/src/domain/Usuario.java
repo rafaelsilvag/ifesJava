@@ -43,4 +43,8 @@ public class Usuario {
         this.descricao = descricao;
     }
     
+    @Override
+    public String toString(){
+        return this.id+": "+this.usuario;
+    }
 }
