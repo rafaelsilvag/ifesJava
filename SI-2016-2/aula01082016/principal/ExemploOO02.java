@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
  *
  * @author Rafael S. Guimarães <rafaelg@ifes.edu.br>
  */
-public class Lista01 {
+public class ExemploOO02 {
 
     public static void main(String args[]) {
-        ArrayList<String> listaNomes = new ArrayList<>();
-        ArrayList<Double> listaSalarios = new ArrayList<>();
+        ArrayList<Funcionario> listaFuncionarios = new ArrayList<>();
         double percIR = 0, percINSS = 0;
 
+        Funcionario f;
         String aux = "";
         String nome;
         int opc = 0;
@@ -42,10 +42,12 @@ public class Lista01 {
             switch (opc){
                 case 1:
                     // Cadastro do funcionario
-                    listaNomes.add(JOptionPane
-                            .showInputDialog("Informe o nome"));
-                    listaSalarios.add(Double.parseDouble(JOptionPane
-                            .showInputDialog("Informe o salário")));
+                    f = new Funcionario();
+                    f.nome = JOptionPane.showInputDialog("Informe o nome");
+                    f.salario = Double.parseDouble(JOptionPane
+                            .showInputDialog("Informe o salário"));
+                    
+                    listaFuncionarios.add(f);
                     break;
                 case 2:
                     // Percentual de imposto de Renda
@@ -60,9 +62,9 @@ public class Lista01 {
                 case 4:
                     // Imprimir o salário bruto dos funcionarios
                     aux = "##########################################\n";
-                    for(int i=0;i<listaNomes.size();i++){
-                        aux += "Nome: "+listaNomes.get(i)+"\n";
-                        aux += "Salário: "+listaSalarios.get(i)+"\n";
+                    for(Funcionario x: listaFuncionarios){
+                        aux += "Nome: "+x.nome+"\n";
+                        aux += "Salário: "+x.salario+"\n";
                     }
                     aux += "##########################################";
                     JOptionPane.showMessageDialog(null, aux);
@@ -71,35 +73,30 @@ public class Lista01 {
                     // Imprimir o salário líquido dos funcionarios
                     double desconto=0;
                     aux = "##########################################\n";
-                    for(int i=0;i<listaNomes.size();i++){
-                        aux += "Nome: "+listaNomes.get(i)+"\n";
-                        desconto = (listaSalarios.get(i)*percIR)/100;
-                        desconto += (listaSalarios.get(i)*percINSS)/100;
-                        aux += "Salário: "+(listaSalarios.get(i)-desconto)+"\n";
+                    for(Funcionario x: listaFuncionarios){
+                        aux += "Nome: "+x.nome+"\n";
+                        aux += "Salário: "+(x.salarioLiquido(2,percIR))+"\n";
                     }
                     aux += "##########################################";
                     JOptionPane.showMessageDialog(null, aux);
                     break;
                 case 6:
                     // Imprimir o Desconto de IR de cada Funcionário
-                    double descontoIR=0;
                     aux = "##########################################\n";
-                    for(int i=0;i<listaNomes.size();i++){
-                        aux += "Nome: "+listaNomes.get(i)+"\n";
-                        descontoIR = (listaSalarios.get(i)*percIR)/100;
-                        aux += "Desconto IR: "+descontoIR+"\n";
+                    for(Funcionario x: listaFuncionarios){
+                        aux += "Nome: "+x.nome+"\n";
+                        aux += "Desconto IR: "+x.desconto(percIR)+"\n";
                     }
                     aux += "##########################################\n";
                     JOptionPane.showMessageDialog(null, aux);
                     break;
                 case 7:
-                    // Imprimir o Desconto de IR de cada Funcionário
+                    // Imprimir o Desconto de INSS de cada Funcionário
                     double descontoINSS=0;
                     aux = "##########################################\n";
-                    for(int i=0;i<listaNomes.size();i++){
-                        aux += "Nome: "+listaNomes.get(i)+"\n";
-                        descontoINSS = (listaSalarios.get(i)*percINSS)/100;
-                        aux += "Desconto IR: "+descontoINSS+"\n";
+                    for(Funcionario x: listaFuncionarios){
+                        aux += "Nome: "+x.nome+"\n";
+                        aux += "Desconto IR: "+x.desconto(percINSS)+"\n";
                     }
                     aux += "##########################################\n";
                     JOptionPane.showMessageDialog(null, aux);
