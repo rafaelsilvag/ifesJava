@@ -69,6 +69,9 @@ public class Principal {
                 case 3:
                     venda = new Venda();
                     String cpfAux;
+                    
+                    venda.id = Integer.parseInt(JOptionPane
+                            .showInputDialog("Informe o ID da Venda"));
                     cpfAux = JOptionPane.showInputDialog("Qual o CPF do cliente?");
                     
                     for(Cliente x: lstClientes){
