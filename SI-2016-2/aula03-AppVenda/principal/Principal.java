@@ -105,14 +105,125 @@ public class Principal {
                     lstVendas.add(venda);
                     break;
                 case 4:
+                    int idVendaAux;
+                    
+                    idVendaAux = Integer.parseInt(JOptionPane
+                            .showInputDialog("Informe o ID da venda"));
+                    
+                    for(Venda x: lstVendas){
+                        if(x.id == idVendaAux){
+                            if(x.fechada){
+                                JOptionPane.showMessageDialog(null, 
+                                        "Venda fechada! Não é possível realizar alterações na venda");
+                                break;
+                            }
+                            while(true){
+                                int opc2;
+                                
+                                opc2 = Integer.parseInt(JOptionPane
+                                        .showInputDialog(
+                                                "##########################\n"+
+                                                "# 1 - Add Produto         \n"+
+                                                "# 2 - Rem Produto         \n"+
+                                                "# 0 - Sair                \n"+
+                                                "##########################\n"
+                                        ));
+                                if(opc2 == 0)
+                                    break;
+                                switch(opc2){
+                                    case 1:
+                                        int idNovoProduto;
+                                        
+                                        idNovoProduto = Integer.parseInt(
+                                            JOptionPane
+                                              .showInputDialog("Informe o ID"));
+                                        
+                                        for(Produto y: lstProdutos){
+                                            if(y.id == idNovoProduto){
+                                                x.lProdutos.add(y);
+                                                break;
+                                            }
+                                        }
+                                        break;
+                                    case 2:
+                                        int idDelProduto;
+                                        
+                                        idDelProduto = Integer.parseInt(
+                                            JOptionPane
+                                              .showInputDialog("Informe o ID"));
+                                        
+                                        for(Produto y: x.lProdutos){
+                                            if(y.id == idDelProduto){
+                                                x.lProdutos.remove(y);
+                                                break;
+                                            }
+                                        }
+                                        break;                  
+                                }
+                            }
+                            break;
+                        }
+                    }
                     break;
                 case 5:
+                    int idFecharVenda;
+                    
+                    idFecharVenda = Integer.parseInt(JOptionPane
+                            .showInputDialog("Informe o ID da Venda"));
+                    for(Venda x: lstVendas){
+                        if(x.id == idFecharVenda){
+                            x.fechada = true;
+                            JOptionPane.showMessageDialog(null,
+                                    "Venda ID: "+x.id+" (FECHADA)");
+                            break;
+                        }
+                    }
                     break;
                 case 6:
+                    aux = "";
+                    for(Cliente x: lstClientes){
+                        aux += "########################################\n";
+                        aux += "# ID Cliente: "+x.id+"\n";
+                        aux += "# Nome: "+x.nome+"\n";
+                        aux += "# Endereço: "+x.endereco+"\n";
+                        aux += "# CPF: "+x.cpf+"\n";
+                        aux += "#\n";
+                    }
+                    aux += "########################################\n";
+                    JOptionPane.showMessageDialog(null, aux);
                     break;
                 case 7:
+                    aux = "";
+                    for(Produto x: lstProdutos){
+                        aux += "########################################\n";
+                        aux += "# ID Produto: "+x.id+"\n";
+                        aux += "# Nome: "+x.nome+"\n";
+                        aux += "# Descrição: "+x.desc+"\n";
+                        aux += "#\n";
+                    }
+                    aux += "########################################\n";
+                    JOptionPane.showMessageDialog(null, aux);
                     break;
                 case 8:
+                    aux = "";
+                    for(Venda x: lstVendas){
+                        aux += "########################################\n";
+                        aux += "# ID Venda: "+x.id+"\n";
+                        aux += "# Nome Cliente: "+x.cliente.nome+"\n";
+                        aux += "# Fechada: "+x.fechada+"\n";
+                        aux += "---------------------------------------\n";
+                        for(Produto y: x.lProdutos){
+                            aux += " ID Produto: "+y.id+"\n";
+                            aux += " Nome Produto: "+y.nome+"\n";
+                            aux += " Valor Produto: "+y.valor+"\n";
+                        }
+                        aux += "---------------------------------------\n";
+                        aux += "# Valor Total: "+x.valorTotal()+"\n";
+                        aux += "# Valor Descontos: "+x.valorTotal(10.0)+"\n";
+                        aux += "#\n";
+                    }
+                    aux += "########################################\n";
+                    JOptionPane.showMessageDialog(null, aux);
                     break;
                 case 0:
                     break;
