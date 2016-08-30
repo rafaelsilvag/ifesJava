@@ -11,7 +11,7 @@ package domain;
  */
 public class Bloco {
     private int id;
-    private String cor;
+    private String nome;
     private double peso;
     private double valor;
 
@@ -23,12 +23,12 @@ public class Bloco {
         this.id = id;
     }
 
-    public String getCor() {
-        return cor;
+    public String getNome() {
+        return nome;
     }
 
-    public void setCor(String cor) {
-        this.cor = cor;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public double getPeso() {

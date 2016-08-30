@@ -19,6 +19,14 @@ public class BlocoCRUD {
     public ArrayList<Bloco> ler(){
         return Database.lstBlocos;
     }
+    public Bloco ler(int id){
+        for(Bloco b: Database.lstBlocos){
+            if(b.getId() == id){
+                return b;
+            }
+        }
+        return null;
+    }
     public void remover(Bloco bloco){
         Database.lstBlocos.remove(bloco);
     }

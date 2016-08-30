@@ -7,6 +7,7 @@ package main;
 
 import crud.*;
 import domain.*;
+import domain.ClientePF;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,7 +24,7 @@ public class Main {
         
         ClienteCRUD clientecrud = new ClienteCRUD();
         BlocoCRUD blococrud = new BlocoCRUD();
-        PedidoCRUD pedido = new PedidoCRUD();
+        PedidoCRUD pedidocrud = new PedidoCRUD();
         
         String menutxt;
 
@@ -88,7 +89,50 @@ public class Main {
                     
                     case 3:
                         auxPedido = new Pedido();
+                        auxPedido.setId(Integer.parseInt(JOptionPane
+                                .showInputDialog("Informe o ID")));
+                        int auxID = Integer.parseInt(JOptionPane
+                                .showInputDialog("Informe o ID do cliente"));
                         
+                        auxCliente = clientecrud.ler(auxID);
+                        if(auxCliente != null)
+                            auxPedido.setCliente(auxCliente);
+                        else{
+                            JOptionPane.showMessageDialog(null, "ID Cliente Inválido");
+                            break;
+                        }
+                        auxID = Integer.parseInt(JOptionPane
+                                .showInputDialog("Informe o ID do bloco"));
+                        auxBloco = blococrud.ler(auxID);
+                        if(auxBloco != null)
+                            auxPedido.setBloco(auxBloco);
+                        else{
+                            JOptionPane.showMessageDialog(null, "ID Bloco Inválido");
+                            break;
+                        }
+                        break;
+                    case 4:
+                        auxPedido = pedidocrud.remover();
+                        JOptionPane.showMessageDialog(null, 
+                                "Número do pedido: "+auxPedido.getId()+
+                                "Nome do cliente: "+auxPedido.getCliente().getNome()+
+                                "ID do bloco: "+auxPedido.getBloco().getId()
+                        );
+                        break;
+                    case 5:
+                        aux = "";
+                        for(Cliente c: clientecrud.ler()){
+                            aux += "####################################\n";
+                            aux += "ID: "+c.getId()+"\n";
+                            aux += "Nome: "+c.getNome()+"\n";
+                            if(c instanceof ClientePF){
+                                aux += "CPF: "+((ClientePF) c).getCpf()+"\n";
+                                aux += "Idade: "+((ClientePF) c).getIdade()+"\n";
+                            }else if(c instanceof ClientePJ){
+                                aux += "CPF: "+((ClientePJ) c).getCnpj()+"\n";
+                            }
+                        }
+                        JOptionPane.showMessageDialog(null, aux);
                         break;
                 }
             }

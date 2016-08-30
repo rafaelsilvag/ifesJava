@@ -79,6 +79,42 @@ public class Main {
                             JOptionPane.showMessageDialog(null, "Tipo Inválido");
                             break;
                         }
+                    case 2:
+                        auxBloco = new Bloco();
+                        auxBloco.setId(Integer.parseInt(JOptionPane
+                                .showInputDialog("Informe o ID")));
+                        auxBloco.setNome(JOptionPane
+                                .showInputDialog("Informe o nome do bloco"));
+                        auxBloco.setPeso(Double.parseDouble(JOptionPane
+                                .showInputDialog("Informe o peso do bloco")));
+                        auxBloco.setValor(Double.parseDouble(JOptionPane
+                                .showInputDialog("Informe o valor do bloco")));;
+                        blococrud.inserir(auxBloco);
+                        break;
+                    
+                    case 3:
+                        auxPedido = new Pedido();
+                        auxPedido.setId(Integer.parseInt(JOptionPane
+                                .showInputDialog("Informe o ID")));
+                        int auxID = Integer.parseInt(JOptionPane
+                                .showInputDialog("Informe o ID do cliente"));
+                        
+                        auxCliente = clientecrud.ler(auxID);
+                        if(auxCliente != null)
+                            auxPedido.setCliente(auxCliente);
+                        else{
+                            JOptionPane.showMessageDialog(null, "ID Cliente Inválido");
+                            break;
+                        }
+                        auxID = Integer.parseInt(JOptionPane
+                                .showInputDialog("Informe o ID do bloco"));
+                        auxBloco = blococrud.ler(auxID);
+                        if(auxBloco != null)
+                            auxPedido.setBloco(auxBloco);
+                        else{
+                            JOptionPane.showMessageDialog(null, "ID Bloco Inválido");
+                            break;
+                        }
                         
                 }
             }

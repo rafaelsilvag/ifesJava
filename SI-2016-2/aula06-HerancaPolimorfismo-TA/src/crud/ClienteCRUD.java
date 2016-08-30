@@ -18,6 +18,14 @@ public class ClienteCRUD {
     public ArrayList<Cliente> ler(){
         return Database.lstClientes;
     }
+    public Cliente ler(int id){
+        for(Cliente c: Database.lstClientes){
+            if(c.getId() == id){
+                return c;
+            }
+        }
+        return null;
+    }
     public void remover(Cliente cliente){
         Database.lstClientes.remove(cliente);
     }
