@@ -68,6 +68,13 @@ public class Main {
                             clientecrud.inserir(auxCliente);
                         }else if(tipoCliente == 2){
                             auxCliente = new ClientePJ();
+                            auxCliente.setId(Integer.parseInt(JOptionPane
+                                    .showInputDialog("Informe o ID")));
+                            auxCliente.setNome(JOptionPane
+                                    .showInputDialog("Informe o nome"));
+                            ((ClientePJ)auxCliente).setCnpj(JOptionPane
+                                    .showInputDialog("Informe o CNPJ"));
+                            clientecrud.inserir(auxCliente);
                         }else{
                             JOptionPane.showMessageDialog(null, "Tipo Inválido");
                             break;
