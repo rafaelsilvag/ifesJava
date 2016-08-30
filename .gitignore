@@ -4,3 +4,5 @@
 *.jar
 *.war
 *.ear
+/SI-2016-2/Aula06/nbproject/private/
+/SI-2016-2/Aula06-TB/nbproject/private/
