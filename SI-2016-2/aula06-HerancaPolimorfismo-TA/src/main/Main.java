@@ -5,6 +5,9 @@
  */
 package main;
 
+import crud.BlocoCRUD;
+import crud.ClienteCRUD;
+import crud.PedidoCRUD;
 import domain.Bloco;
 import domain.Cliente;
 import domain.ClientePF;
@@ -23,6 +26,10 @@ public class Main {
         Pedido auxPedido;
         Cliente auxCliente;
         Bloco auxBloco;
+        
+        ClienteCRUD clientecrud = new ClienteCRUD();
+        BlocoCRUD blococrud = new BlocoCRUD();
+        PedidoCRUD pedidocrud = new PedidoCRUD();
         
         while(true){
             String menutxt;
@@ -58,6 +65,7 @@ public class Main {
                                     .showInputDialog("Informe o CPF"));
                             ((ClientePF)auxCliente).setIdade(Integer.parseInt(
                                     JOptionPane.showInputDialog("Informe a idade")));
+                            clientecrud.inserir(auxCliente);
                         }else if(tipoCliente == 2){
                             auxCliente = new ClientePJ();
                         }else{
