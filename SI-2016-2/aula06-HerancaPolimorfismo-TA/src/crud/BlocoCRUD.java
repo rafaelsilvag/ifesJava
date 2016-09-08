@@ -31,7 +31,6 @@ public class BlocoCRUD {
         for(Bloco b: Database.lstBlocos){
             if(b.getId() == id){
                 b.setId(bloco.getId());
-                b.setCor(bloco.getCor());
                 b.setPeso(bloco.getPeso());
                 b.setValor(bloco.getValor());
                 break;

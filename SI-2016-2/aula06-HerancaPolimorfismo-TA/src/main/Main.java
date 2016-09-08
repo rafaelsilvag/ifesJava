@@ -46,7 +46,16 @@ public class Main {
             menutxt += "######################################\n";
             menutxt += "Informe uma opção:                    \n";
 
-            opc = Integer.parseInt(JOptionPane.showInputDialog(menutxt));
+            try{
+            
+                opc = Integer.parseInt(JOptionPane.showInputDialog(menutxt));
+            }catch(NumberFormatException ex){
+                JOptionPane.showMessageDialog(null, "Opção Inválida!");
+                break;
+            }catch(NullPointerException ex){
+                JOptionPane.showMessageDialog(null, "Opção Inválida!");
+                break;
+            }
             if(opc == 0)
                 break;
             else{
