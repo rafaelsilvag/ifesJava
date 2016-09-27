@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package teste;
+package views;
 
 /**
  *
@@ -11,7 +11,6 @@ package teste;
  */
 public class Main {
     public static void main(String args[]){
-        FrmLogin telaLogin = new FrmLogin();
-
+        FrmLogin principal = new FrmLogin();
     }
 }
