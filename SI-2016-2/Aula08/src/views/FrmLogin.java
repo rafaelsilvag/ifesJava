@@ -78,7 +78,7 @@ public class FrmLogin extends JFrame implements ActionListener {
         if(e.getSource().equals(btEntrar)){
             String password = new String(tfSenha.getPassword()).trim();
             if(tfUsuario.getText().equals("admin") && password.equals("123456")){
-                new FrmMenu();
+                new FrmMenuPrincipal();
                 this.dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "Usuário ou senha inválidos!");
