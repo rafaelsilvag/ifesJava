@@ -14,6 +14,15 @@ public class Usuario {
     private String nome;
     private String senha;
     private String descricao;
+    private int perfil;
+
+    public int getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(int perfil) {
+        this.perfil = perfil;
+    }
 
     public int getId() {
         return id;

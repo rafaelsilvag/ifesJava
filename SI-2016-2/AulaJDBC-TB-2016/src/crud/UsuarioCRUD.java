@@ -19,12 +19,13 @@ public class UsuarioCRUD {
     public void create(Connection conn, Usuario usuario){
         try{
             PreparedStatement pstm = conn.prepareStatement(
-                    "INSERT INTO usuario(nome, senha, descricao)"+
-                    " VALUES(?,?,?);"
+                    "INSERT INTO usuario(nome, senha, descricao, perfil)"+
+                    " VALUES(?,MD5(?),?,?);"
             );
             pstm.setString(1, usuario.getNome());
             pstm.setString(2, usuario.getSenha());
             pstm.setString(3, usuario.getDescricao());
+            pstm.setInt(4, usuario.getPerfil());
             
             pstm.execute();
         }catch(SQLException ex){
@@ -36,7 +37,7 @@ public class UsuarioCRUD {
         ArrayList<Usuario> listaUsuarios = new ArrayList<>();
         try{
             PreparedStatement pstm = conn.prepareStatement(
-                    "SELECT nome, senha, descricao"+
+                    "SELECT id, nome, senha, descricao, perfil"+
                     " FROM usuario"+
                     " GROUP BY nome;"
             );
@@ -47,7 +48,7 @@ public class UsuarioCRUD {
                 aux.setNome(rset.getString("nome"));
                 aux.setSenha(rset.getString("senha"));
                 aux.setDescricao(rset.getString("descricao"));
-                
+                aux.setPerfil(rset.getInt("perfil"));
                 listaUsuarios.add(aux);
             }
             return listaUsuarios;
@@ -60,7 +61,7 @@ public class UsuarioCRUD {
         Usuario aux = null;
         try{
             PreparedStatement pstm = conn.prepareStatement(
-                    "SELECT nome, senha, descricao"+
+                    "SELECT id, nome, senha, descricao, perfil"+
                     " FROM usuario"+
                     " WHERE id=?"+
                     " LIMIT 1;"
@@ -73,7 +74,7 @@ public class UsuarioCRUD {
                 aux.setNome(rset.getString("nome"));
                 aux.setSenha(rset.getString("senha"));
                 aux.setDescricao(rset.getString("descricao"));
-                
+                aux.setPerfil(rset.getInt("perfil"));
                 return aux;
             }else{
                 return aux;
@@ -87,13 +88,14 @@ public class UsuarioCRUD {
         try{
             PreparedStatement pstm = conn.prepareStatement(
                     "UPDATE usuario"+
-                    " SET nome=?, senha=MD5(?), descricao=?"+
+                    " SET nome=?, senha=MD5(?), descricao=?, perfil=?"+
                     " WHERE id=?;"
             );
             pstm.setString(1, usuario.getNome());
             pstm.setString(2, usuario.getSenha());
             pstm.setString(3, usuario.getDescricao());
             pstm.setInt(4, usuario.getId());
+            pstm.setInt(5, usuario.getPerfil());
             
             pstm.execute();
         }catch(SQLException ex){

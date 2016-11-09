@@ -15,8 +15,8 @@ import java.sql.SQLException;
  */
 public class DatabasePostresql implements Database {
     
-    private String usuario = "postgres";
-    private String senha = "postgres";
+    private String usuario = "rafael";
+    private String senha = "";
     private String ipaddress = "127.0.0.1";
     private String database = "ifes";
     private String url = "jdbc:postgresql://";
