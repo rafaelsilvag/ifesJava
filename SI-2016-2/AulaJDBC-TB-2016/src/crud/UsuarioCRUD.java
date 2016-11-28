@@ -39,7 +39,7 @@ public class UsuarioCRUD {
             PreparedStatement pstm = conn.prepareStatement(
                     "SELECT id, nome, senha, descricao, perfil"+
                     " FROM usuario"+
-                    " GROUP BY nome;"
+                    " ORDER BY id;"
             );
             ResultSet rset = pstm.executeQuery();
             while(rset.next()){
@@ -84,6 +84,33 @@ public class UsuarioCRUD {
             return aux;
         }
     }
+    public ArrayList<Usuario> read(Connection conn, String nome){
+        ArrayList<Usuario> listaUsuarios = new ArrayList<>();
+        try{
+            PreparedStatement pstm = conn.prepareStatement(
+                    "SELECT id, nome, senha, descricao, perfil"+
+                    " FROM usuario"+
+                    " WHERE nome like ?"+
+                    " ORDER BY id;"
+            );
+            pstm.setString(1, nome);
+            ResultSet rset = pstm.executeQuery();
+            while(rset.next()){
+                Usuario aux = new Usuario();
+                aux.setId(rset.getInt("id"));
+                aux.setNome(rset.getString("nome"));
+                aux.setSenha(rset.getString("senha"));
+                aux.setDescricao(rset.getString("descricao"));
+                aux.setPerfil(rset.getInt("perfil"));
+                listaUsuarios.add(aux);
+            }
+            return listaUsuarios;
+        }catch(SQLException ex){
+            System.err.println(ex.getMessage());
+            return listaUsuarios;
+        }
+    }
+
     public void update(Connection conn, Usuario usuario){
         try{
             PreparedStatement pstm = conn.prepareStatement(
